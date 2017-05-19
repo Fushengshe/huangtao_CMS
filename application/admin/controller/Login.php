@@ -2,6 +2,7 @@
 
 namespace app\admin\controller;
 
+use app\common\model\Admin;
 use think\Controller;
 
 class Login extends Controller
@@ -12,6 +13,12 @@ class Login extends Controller
 //        $data=db('admin')->find(1);
 //        dump($data);
 
+
+        if(request()->isPost()){
+            //halt($_POST);
+           $res=(new Admin())->login(input('post.'));
+
+        }
         //登陆页面
         return $this->fetch();
 
