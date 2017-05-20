@@ -3,6 +3,7 @@
 namespace app\common\model;
 
 use houdunwang\crypt\Crypt;
+use think\Loader;
 use think\Model;
 
 class Admin extends Model
@@ -16,18 +17,21 @@ class Admin extends Model
     //登陆
     public function login($data)
     {
-        //echo Crypt::encrypt('admin888');//加密h3vPU8JGuF3VS/uxIpjRSw==
-        //解密
-        echo Crypt::decrypt('h3vPU8JGuF3VS/uxIpjRSw== ');
-        //验证
 
-            $validate = Loader::validate('Admin');
+        //验证
+        $validate = Loader::validate('Admin');
 
             if(!$validate->check($data)){
                 dump($validate->getError());
             }
 
         //比对用户名和密码
+
+        $userInfo = $this->where('admin_id',session('admin.admin_id'))->where('admin_password',Crypt::encrypt($data['admin_password']))->find();
+        if(!$userInfo)
+        {
+            return ['valid'=>0,'msg'=>'原始密码不正确'];
+        }
         //存入session
     }
 
