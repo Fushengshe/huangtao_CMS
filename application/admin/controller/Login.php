@@ -13,7 +13,7 @@ class Login extends Controller
 
         //echo Crypt::encrypt('admin888');//加密h3vPU8JGuF3VS/uxIpjRSw==
         //解密
-        //echo Crypt::decrypt('h3vPU8JGuF3VS/uxIpjRSw== ');
+        //echo Crypt::decrypt('h3vPU8JGuF3VS/uxIpjRSw== ');//admin888
 
 //        //测试数据库
 //        $data=db('admin')->find(1);

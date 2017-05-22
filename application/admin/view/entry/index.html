@@ -1,12 +1,13 @@
+<!--
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 		<title>hdphp教学博客-首页</title>
-		<!--描述和摘要-->
+		&lt;!&ndash;描述和摘要&ndash;&gt;
 		<meta name="Description" content=""/>
 		<meta name="Keywords" content=""/>
-		<!--载入公共模板-->
+		&lt;!&ndash;载入公共模板&ndash;&gt;
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="__STATIC__/admin/org/bootstrap-3.3.5-dist/css/bootstrap.min.css" />
 		<script src="__STATIC__/admin/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
@@ -24,6 +25,7 @@
 				</div>
 			</div>
 		</header>
+
 		<nav role="navigation" class="navbar navbar-default">
 			<div class="container">
 				<div class="row">
@@ -57,17 +59,17 @@
 		<section>
 			<div class="container">
 				<div class="row">
-					<!--标签规定文档的主要内容main-->
+					&lt;!&ndash;标签规定文档的主要内容main&ndash;&gt;
 					<main class="col-md-8">
 						<article class="_carousel">
 							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-							  <!-- Indicators -->
+							  &lt;!&ndash; Indicators &ndash;&gt;
 							  <ol class="carousel-indicators">
 							    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 							    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
 							  </ol>
 							
-							  <!-- Wrapper for slides -->
+							  &lt;!&ndash; Wrapper for slides &ndash;&gt;
 							  <div class="carousel-inner" role="listbox">
 							    <div class="item active">
 							      <img src="__STATIC__/admin/images/1.jpg">
@@ -77,7 +79,7 @@
 							    </div>
 							  </div>
 							
-							  <!-- Controls -->
+							  &lt;!&ndash; Controls &ndash;&gt;
 							  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 							    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 							  </a>
@@ -94,7 +96,7 @@
 								黄晓明
 								</span>
 								•
-								<!--pubdate表⽰示发布⽇日期-->
+								&lt;!&ndash;pubdate表⽰示发布⽇日期&ndash;&gt;
 								<time pubdate="pubdate" datetime="2017-1-1">2017-1-1</time>
 								•
 								分类：
@@ -191,7 +193,7 @@
 				</div>
 			</div>
 		</div>
-		<!--返回顶部自己写的插件-->
+		&lt;!&ndash;返回顶部自己写的插件&ndash;&gt;
 		<script src="__STATIC__/admin/js/backTop.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function(){
@@ -203,4 +205,35 @@
 			<i class="glyphicon glyphicon-menu-up"></i>
 		</div>
 	</body>
-</html>
+</html>-->
+{extend name='base'/}
+{block name='content'}
+<table class="table table-hover">
+	<tbody>
+	<tr>
+		<th class="active" colspan="10">温馨提示</th>
+	</tr>
+	<tr>
+		<td colspan="10">
+			后盾网官网：<a href="http://www.houdunwang.com" target="_blank">www.houdunwang.com</a>
+			后盾网论坛：<a href="http://bbs.houdunwang.com" target="_blank">bbs.houdunwang.com</a>
+		</td>
+	</tr>
+	<tr>
+		<th class="active" colspan="10">系统信息</th>
+	</tr>
+	<tr>
+		<td>核心框架</td>
+		<td colspan="5">Thinkphp</td>
+	</tr>
+	<tr>
+		<td>版本号</td>
+		<td colspan="5">1.0</td>
+	</tr>
+	<tr>
+		<td>开发者</td>
+		<td colspan="5">后盾网武斌</td>
+	</tr>
+	</tbody>
+</table>
+{/block}

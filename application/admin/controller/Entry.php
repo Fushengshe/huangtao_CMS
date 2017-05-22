@@ -3,83 +3,33 @@
 namespace app\admin\controller;
 
 
-
+use app\common\model\Admin;
 class Entry extends Common
 {
-    /**
-     * 显示资源列表
-     *
-     * @return \think\Response
-     */
+    //首页
     public function index()
     {
         //加载模板文件
         return $this->fetch();
     }
-
     /**
-     * 显示创建资源表单页.
-     *
-     * @return \think\Response
+     * 修改密码
      */
-    public function create()
+    public function pass()
     {
-        //
-    }
-
-    /**
-     * 保存新建的资源
-     *
-     * @param  \think\Request  $request
-     * @return \think\Response
-     */
-    public function save(Request $request)
-    {
-        //
-    }
-
-    /**
-     * 显示指定的资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function read($id)
-    {
-        //
-    }
-
-    /**
-     * 显示编辑资源表单页.
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * 保存更新的资源
-     *
-     * @param  \think\Request  $request
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * 删除指定资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function delete($id)
-    {
-        //
+        if(request()->isPost())
+        {
+            $res = (new Admin())->pass(input('post.'));
+            if($res['valid'])
+            {
+                //清楚session中的登录信息
+                session(null);
+                //执行成功
+                $this->success($res['msg'],'admin/entry/index');exit;
+            }else{
+                $this->error($res['msg']);exit;
+            }
+        }
+        return $this->fetch();
     }
 }
