@@ -32,7 +32,7 @@
                     <select class="js-example-basic-single form-control" name="cate_pid">
                         <option value="0">顶级栏目</option>
                         {foreach name='cateData'  item='vo'}
-                        <option {if condition="$oldData['cate_pid']==$vo['cate_id']"}selected{/if} value="{$vo['cate_id']}">{$vo['_cate_name']}</option>
+                        <option {if condition="$oldData['cate_pid']==$vo['cate_id']"}selected{/if} value="{$vo['cate_id']}">{$vo['cate_name']}</option>
                         {/foreach}
                     </select>
                 </div>
