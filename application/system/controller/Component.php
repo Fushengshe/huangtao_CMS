@@ -11,7 +11,6 @@ class Component extends Controller
     //上传文件
     public function uploader ()
     {
-
         // 获取表单上传文件 例如上传了001.jpg
         $file = request()->file( 'file' );
         // 移动到框架应用根目录/public/uploads/ 目录下
@@ -25,8 +24,8 @@ class Component extends Controller
                 'createtime' => time() ,
                 'size'       => $info->getSize() ,
             ];
-            Db::name( 'attachment' )->insert( $data );
-            halt($data);
+            Db::name('attachment')->insert($data);
+
             echo json_encode( [ 'valid' => 1 , 'message' => HD_ROOT . 'uploads/' . $info->getSaveName() ] );
         }
         else {
@@ -40,7 +39,7 @@ class Component extends Controller
     {
         $db   = Db::name( 'attachment' )->whereIn( 'extension' , explode( ',' , strtolower( input( "post.extensions" ) ) ) )->order( 'id desc' );
         $Res  = $db->paginate( 32 );
-        $data = [];
+        $data = [ ];
         if ( $Res->toArray() ) {
             //dump($Res->toArray());die;
             foreach ( $Res as $k => $v ) {
@@ -51,6 +50,6 @@ class Component extends Controller
                 $data[ $k ][ 'name' ]       = $v[ 'name' ];
             }
         }
-        echo json_encode( [ 'data' => $data , 'page' => $Res->render() ? : '' ] );
+        echo json_encode( [ 'data' => $data , 'page' => $Res->render() ?:'' ] );
     }
 }

@@ -52,13 +52,13 @@ class Article extends Model
 		$result = $this->validate( true )->allowField( true )->save( $data );
 		if ( $result ) {
 			//文章标签中间表的添加
-			foreach ( $data[ 'tag' ] as $v ) {
+			/*foreach ( $data[ 'tag' ] as $v ) {
 				$arcTagData = [
 					'arc_id' => $this->arc_id ,
 					'tag_id' => $v ,
 				];
 				( new ArcTag() )->save( $arcTagData );
-			}
+			}*/
 
 			//执行成功
 			return [ 'valid' => 1 , 'msg' => '操作成功' ];
